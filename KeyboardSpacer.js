@@ -34,7 +34,7 @@ const defaultAnimation = {
   },
 };
 
-function KeyboardSpacer({ topSpacing, onToggle, style }) {
+function KeyboardSpacer({ topSpacing, onToggle }) {
   const [keyboardSpace, setKeyboardSpace] = useState(0);
   const [isKeyboardOpened, setIsKeyboardOpened] = useState(false);
 
@@ -54,7 +54,7 @@ function KeyboardSpacer({ topSpacing, onToggle, style }) {
   }
 
   function updateKeyboardSpace(event) {
-    if (!event.endCoordinates) {
+    if (!event.endCoordinates || isKeyboardOpened) {
       return;
     }
     configureLayoutAnimation();
@@ -71,6 +71,9 @@ function KeyboardSpacer({ topSpacing, onToggle, style }) {
   }
 
   function resetKeyboardSpace(event) {
+    if (!isKeyboardOpened) {
+      return;
+    }
     configureLayoutAnimation(event);
     setKeyboardSpace(0);
     setIsKeyboardOpened(false);
@@ -93,7 +96,7 @@ function KeyboardSpacer({ topSpacing, onToggle, style }) {
     };
   }, []);
 
-  return <View style={[styles.container, { height: keyboardSpace }, style]} />;
+  return <View style={[styles.container, { height: keyboardSpace }]} />;
 }
 
 KeyboardSpacer.defaultProps = {
