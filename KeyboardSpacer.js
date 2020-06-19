@@ -1,7 +1,7 @@
 /**
  * Created by andrewhurst on 10/5/15.
  */
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import {
   Keyboard,
