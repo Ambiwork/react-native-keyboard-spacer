@@ -54,7 +54,7 @@ function KeyboardSpacer({ topSpacing, onToggle }) {
   }
 
   function updateKeyboardSpace(event) {
-    if (!event.endCoordinates || isKeyboardOpened) {
+    if (!event.endCoordinates) {
       return;
     }
     configureLayoutAnimation();
@@ -71,9 +71,6 @@ function KeyboardSpacer({ topSpacing, onToggle }) {
   }
 
   function resetKeyboardSpace(event) {
-    if (!isKeyboardOpened) {
-      return;
-    }
     configureLayoutAnimation(event);
     setKeyboardSpace(0);
     setIsKeyboardOpened(false);
