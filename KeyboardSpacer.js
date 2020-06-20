@@ -57,7 +57,7 @@ function KeyboardSpacer({ topSpacing, onToggle }) {
     if (!event.endCoordinates) {
       return;
     }
-    configureLayoutAnimation();
+    configureLayoutAnimation(event);
     // get updated on rotation
     const screenHeight = Dimensions.get("window").height;
     // when external physical keyboard is connected
