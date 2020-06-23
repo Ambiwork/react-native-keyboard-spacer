@@ -43,7 +43,7 @@ function KeyboardSpacer({ topSpacing, onToggle }) {
 
   function configureLayoutAnimation(event) {
     let animationConfig = defaultAnimation;
-    if (IS_IOS) {
+    if (IS_IOS && event) {
       animationConfig = LayoutAnimation.create(
         event.duration,
         LayoutAnimation.Types[event.easing],
